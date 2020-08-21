@@ -104,16 +104,6 @@ void scheduler(void){
            tcbSaliente= runningTask;
        }
 
-       // Impresion de la Traza
-       if(registrarTrazaCiclos()){
-           if(trazaCiclosTerminada()){
-               //imprimirTraza();
-               //printf("Imprimir Tabla.\n\r");
-               imprimirTablaCiclos();
-               //exit(0);
-               for(;;);
-           }
-       }
 
        // Si hay una tarea en ejecucion actualmente.
        if(runningTask != NULL){
@@ -160,6 +150,17 @@ void scheduler(void){
            // Registro ciclo de cpu actual para planificadora
            tablaCiclos[tcbSaliente->id][tcbSaliente->n_instancias-1]= CPU_CYCLES - tablaCiclos[tcbSaliente->id][tcbSaliente->n_instancias-1];
            finTarea= false;
+       }
+
+       // Impresion de la Traza
+       if(registrarTrazaCiclos()){
+           if(trazaCiclosTerminada()){
+               //imprimirTraza();
+               //printf("Imprimir Tabla.\n\r");
+               imprimirTablaCiclos();
+               //exit(0);
+               for(;;);
+           }
        }
 
    }
