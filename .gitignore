@@ -1,0 +1,10 @@
+BUILD/*
+.settings/*
+.cproject
+*.jpg
+
+.project
+
+*.html
+
+*.launch
